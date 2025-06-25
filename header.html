@@ -1,0 +1,62 @@
+<header class="fixed-top bg-light shadow-sm">
+    <nav class="navbar sticky-top navbar-expand-lg">
+        <div class="container">
+            <!-- 中央のロゴ -->
+            <a
+                class="navbar-brand position-absolute top-50 start-50 translate-middle"
+                href="index.html"
+            >
+                CO2チェッカー
+            </a>
+
+            <!-- ハンバーガーメニュー -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasMenu"
+                aria-controls="offcanvasMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- メニュー内容 -->
+            <div
+                class="offcanvas offcanvas-start offcanvas-fullscreen offcanvas-gradient p-4"
+                tabindex="-1"
+                id="offcanvasMenu"
+                aria-labelledby="offcanvasMenuLabel"
+            >
+                <div class="offcanvas-header">
+                    <a
+                        href="index.html"
+                        class="offcanvas-title"
+                        id="offcanvasMenuLabel"
+                    >
+                        CO2チェッカー
+                    </a>
+                    <button
+                        type="button"
+                        class="btn-close text-reset"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="offcanvas-body fw-bold">
+                    <ul class="navbar-nav ms-auto me-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"> Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings.html">
+                                Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
