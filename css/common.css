@@ -1,0 +1,45 @@
+/* common.css */
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    position: relative;
+    padding: 0 1rem;
+    background-color: #3fab9b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.graph-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.graph-area {
+    position: relative;
+    width: 500px;
+    height: 750px;
+}
+
+/* css/common.css に追加 */
+
+/* 閾値保存ボタンのカスタムスタイル */
+#save-border-btn {
+    /* 通常時の背景色と枠線の色 */
+    background-color: #3fab9b;
+    border-color: #3fab9b;
+    color: #ffffff;
+}
+
+/* マウスを乗せた時（ホバー）の色 */
+#save-border-btn:hover {
+    background-color: #399b8d;
+    border-color: #399b8d;
+}
