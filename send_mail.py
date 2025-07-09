@@ -7,12 +7,20 @@ from dotenv import load_dotenv
 
 load_dotenv()  # .env を読み込む
 
-predicted_co2 = 800.0
-
 # Firebase初期化
 cred = credentials.Certificate("firebase-key.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
+
+#予測値を取得
+predicted_co2 = 0.0
+docs = db.collection("co2-prediction").stream()
+if docs:
+    first_doc = docs[0].to_dict()
+    predicted_co2 = first_doc["latest"]
+else:
+    predicted_co2 = '＊エラー:CO2濃度を取得できませんでした。＊'
+
 
 # Firestoreから全ユーザーのメール取得
 emails = []
