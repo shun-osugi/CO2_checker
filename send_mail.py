@@ -13,11 +13,14 @@ db = firestore.client()
 #予測値を取得
 predicted_co2 = 0.0
 docs = db.collection("co2-prediction").stream()
-if docs:
-    first_doc = docs[0].to_dict()
-    predicted_co2 = first_doc["latest"]
+first_doc = next(docs, None)
+
+if first_doc:
+    data = first_doc.to_dict()
+    predicted_co2 = data["latest"]
 else:
     predicted_co2 = '＊エラー:CO2濃度を取得できませんでした。＊'
+
 
 
 # Firestoreから全ユーザーのメール取得
