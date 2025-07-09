@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 正しい値のみをFirestoreに保存
         db.collection("users")
             .doc(user.uid)
-            .set({ co2Border: numberValue }, { merge: true })
+            .set({ border: numberValue }, { merge: true })
             .then(() => {
                 saveStatus.textContent = "保存しました！";
                 saveStatus.className = "form-text mt-2 text-success";
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .get()
             .then((doc) => {
                 if (doc.exists && doc.data().border != null) {
-                    thresholdInput.value = doc.data().border;
+                    borderInput.value = doc.data().border;
                 }
             })
             .catch((error) => console.error("読み込みエラー", error));
