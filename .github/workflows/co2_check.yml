@@ -10,11 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Debug firebase-key.json
-        run: |
-          echo "----- START FILE -----"
-          cat firebase-key.json | head -n 5
-          echo "----- END FILE -----"
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -30,6 +25,10 @@ jobs:
       - name: Write Firebase credential JSON
         run: |
           printf '%s' "${{ secrets.FIREBASE_CREDENTIAL_JSON }}" > firebase-key.json
+
+      - name: Debug FIREBASE_CREDENTIAL_JSON (partial)
+        run: |
+          echo "${{ secrets.FIREBASE_CREDENTIAL_JSON }}" | head -c 100
 
       - name: Run script
         env:
