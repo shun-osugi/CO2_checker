@@ -10,7 +10,7 @@ load_dotenv()  # .env を読み込む
 predicted_co2 = 800.0
 
 # Firebase初期化
-cred = credentials.Certificate("jp-co2-checker-firebase-adminsdk-fbsvc-93fc388618.json")
+cred = credentials.Certificate("firebase-key.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
