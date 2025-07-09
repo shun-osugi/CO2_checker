@@ -1,0 +1,3 @@
+sendgrid
+firebase-admin
+python-dotenv
