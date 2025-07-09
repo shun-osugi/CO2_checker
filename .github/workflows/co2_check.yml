@@ -26,10 +26,6 @@ jobs:
         run: |
           echo "${{ secrets.FIREBASE_CREDENTIAL_JSON }}" | base64 -d > firebase-key.json
 
-      - name: Debug base64 (partial)
-        run: |
-          echo "${{ secrets.FIREBASE_CREDENTIAL_JSON }}" | head -c 100
-
       - name: Run script
         env:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
