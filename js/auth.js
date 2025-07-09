@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const borderInput = document.getElementById("co2-border-input");
     const saveBorderBtn = document.getElementById("save-border-btn");
     const saveStatus = document.getElementById("save-status");
+    const co2PredictionElement = document.getElementById("co2-prediction");
 
     // ===============================================================
     // 認証状態の監視 (認証ガード)
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // ログイン状態の場合：ユーザー情報を利用して閾値を読み込む
             console.log("ログイン済みユーザー:", user.uid);
             loadBorder(user.uid);
+            loadCo2Prediction();
         } else {
             // 未ログイン状態の場合：ログインページにリダイレクト
             console.log("未ログインのためリダイレクトします");
@@ -89,11 +91,25 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch((error) => console.error("読み込みエラー", error));
     }
 
-    // (ダミーのCO2予測値表示機能)
-    setTimeout(() => {
-        const co2PredictionElement = document.getElementById("co2-prediction");
-        if (co2PredictionElement) {
-            co2PredictionElement.textContent = "450 ppm";
-        }
-    }, 1000);
+    // CO2予測値の読み込み処理
+    function loadCo2Prediction() {
+        db.collection("co2-prediction")
+            .doc("TWNDdsILjaOACEoFemFx")
+            .get()
+            .then((doc) => {
+                if (doc.exists && doc.data().latest != null) {
+                    const value = doc.data().latest;
+                    if (co2PredictionElement) {
+                        co2PredictionElement.textContent = `${value.toFixed(
+                            2
+                        )} ppm`;
+                    }
+                } else {
+                    console.warn("予測値が存在しません。");
+                }
+            })
+            .catch((error) => {
+                console.error("CO2予測値の読み込みエラー:", error);
+            });
+    }
 });
