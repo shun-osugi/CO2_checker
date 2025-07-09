@@ -28,7 +28,17 @@ input[type="password"] {
 button[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #3fab9b;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="resend"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #3fab9b;
     color: #fff;
     border: none;
     border-radius: 3px;
