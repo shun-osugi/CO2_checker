@@ -24,9 +24,9 @@ jobs:
 
       - name: Write Firebase credential JSON
         run: |
-          echo "${{ secrets.FIREBASE_CREDENTIAL_JSON_BASE64 }}" | base64 -d > firebase-key.json
+          echo "${{ secrets.FIREBASE_CREDENTIAL_JSON }}" | base64 -d > firebase-key.json
 
-      - name: Debug FIREBASE_CREDENTIAL_JSON (partial)
+      - name: Debug base64 (partial)
         run: |
           echo "${{ secrets.FIREBASE_CREDENTIAL_JSON }}" | head -c 100
 
