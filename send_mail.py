@@ -5,8 +5,6 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from dotenv import load_dotenv
 
-load_dotenv()  # .env を読み込む
-
 # Firebase初期化
 cred = credentials.Certificate("firebase-key.json")
 firebase_admin.initialize_app(cred)

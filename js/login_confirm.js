@@ -2,6 +2,7 @@ import { app } from "./firebase_init.js";
 import {
     getAuth,
     onAuthStateChanged,
+    sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import {
     getFirestore,
@@ -37,4 +38,11 @@ $(async function waitForEmailVerification() {
         alert("一定時間内にメールが確認されませんでした。");
         window.location.href = "login.html";
     })
+})
+
+$('#resend').click(function(){
+    const user = auth.currentUser;
+    sendEmailVerification(user).then(() => {
+        alert("メールを再送しました。"); /* 成功メッセージ*/
+    });
 })
