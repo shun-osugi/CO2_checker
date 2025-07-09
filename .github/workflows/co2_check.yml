@@ -3,6 +3,7 @@ name: CO2 Checker
 on:
   schedule:
     - cron: "*/15 * * * *"  # 15分ごと
+  workflow_dispatch:
 
 jobs:
   run-script:
