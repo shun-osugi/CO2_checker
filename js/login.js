@@ -48,9 +48,9 @@ $("button[type=submit]").click(function () {
                 });
             //メールを送信
             return sendEmailVerification(user).then(() => {
-                alert("メールを送信しました。確認してください。");
+                console.log("ログイン成功"); /* 成功メッセージ*/
+                window.location.href = "login_confirm.html";
             });
-            window.location.href = "index.html";
         })
         .catch((error) => {
             //すでにメールアドレスが存在した時
