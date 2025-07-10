@@ -100,8 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (doc.exists && doc.data().latest != null) {
                     const value = doc.data().latest;
                     if (co2PredictionElement) {
-                        co2PredictionElement.textContent = `${value.toFixed(
-                            2
+                        co2PredictionElement.textContent = `${Math.round(
+                            value
                         )} ppm`;
                     }
                 } else {
