@@ -35,7 +35,7 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-button[type="resend"] {
+button[id="resend"] {
     width: 100%;
     padding: 10px;
     background-color: #3fab9b;
