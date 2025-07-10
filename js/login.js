@@ -15,14 +15,15 @@ import {
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const allow_domain = "@ccmailg.meijo-u.ac.jp";
+//許可するドメイン
+const allow_domains = ['@ccmailg.meijo-u.ac.jp', '@meijo-u.ac.jp'];
 
 $("button[type=submit]").click(function () {
     const email = $("input[type=email]").val();
     const password = $("input[type=password]").val();
 
     //大学ドメイン以外を弾く
-    if (!email.endsWith(allow_domain)) {
+    if (!allow_domains.some(domain => email.endsWith(domain))) {
         alert("名城大学のメールアドレスでログインしてください。");
         return;
     }
