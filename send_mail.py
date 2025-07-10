@@ -17,7 +17,8 @@ first_doc = next(docs, None)
 
 if first_doc:
     data = first_doc.to_dict()
-    predicted_co2 = data["latest"]
+    #四捨五入
+    predicted_co2 = round(data["latest"])
 else:
     predicted_co2 = '＊エラー:CO2濃度を取得できませんでした。＊'
 
@@ -43,7 +44,7 @@ for data in emails:
                 "to": [{"email": data["email"]}]
             }],
             "from": {"email": "upurocon@gmail.com"},
-            "subject": "[テスト]CO2濃度予想",
+            "subject": "CO2濃度予測",
             "content": [{
                 "type": "text/plain",
                 "value": f"15分後のCO2濃度は{predicted_co2}ppmです。"
