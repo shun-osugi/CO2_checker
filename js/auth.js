@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // DOM要素の取得
     const logoutBtn = document.getElementById("logout-btn");
+    const deleteAccountBtn = document.getElementById("delete-account-btn");
     const borderInput = document.getElementById("co2-border-input");
     const saveBorderBtn = document.getElementById("save-border-btn");
     const saveStatus = document.getElementById("save-status");
@@ -45,6 +46,38 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("ログアウトしました");
             // ログアウト後、onAuthStateChangedが再度呼ばれ、リダイレクトが実行される
         });
+    });
+
+    // アカウント削除処理
+    deleteAccountBtn.addEventListener("click", async () => {
+        const user = auth.currentUser;
+        if(confirm('アカウントを削除しますか？')){
+            try{
+                // DBから削除
+                await db.collection("users").doc(user.uid).delete();
+                console.log("DB削除");
+
+                // Firebase Auth アカウント削除
+                await user.delete();
+                window.location.href = "login.html";
+            }catch(err){
+                if (err.code === "auth/requires-recent-login") {
+                    if(confirm('ログインからしばらく時間が経過しているので、ログインし直してください。')){
+                        auth.signOut().then(() => {
+                            console.log("ログアウトしました");
+                            // 削除後、onAuthStateChangedが再度呼ばれ、リダイレクトが実行される
+                        });
+                    }else{
+                        return
+                    }
+                }else{
+                    console.log(`error:${err}`);
+                    alert('エラーが発生しました。');
+                }
+            }
+        }else{
+            return;
+        }
     });
 
     // 閾値の保存処理
