@@ -6,7 +6,6 @@ body {
 
 header {
     position: relative;
-    padding: 0 1rem;
     background-color: #3fab9b;
     color: white;
     padding: 20px;
@@ -17,14 +16,14 @@ header {
 }
 
 .graph-container {
-    margin-top: 40px;
+    margin: 40px;
     display: flex;
     justify-content: center;
 }
 
 .graph-area {
     position: relative;
-    width: 500px;
+    width: 75%;
     height: 750px;
 }
 

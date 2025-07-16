@@ -32,8 +32,8 @@
             <span>CO₂チェッカー</span>
         </header>
 
-        <div class="d-flex justify-content-center mt-4">
-            <div class="card w-50 text-center">
+        <div class="d-flex justify-content-center mt-4 card-frame">
+            <div class="card w-75 text-center">
                 <div class="card-body">
                     <h5 class="card-title">現在のCO₂予測値</h5>
                     <p class="card-text display-4" id="co2-prediction">
@@ -44,7 +44,7 @@
         </div>
 
         <div id="border-area" class="d-flex justify-content-center mt-4">
-            <div class="card w-50 text-center">
+            <div class="card w-75 text-center">
                 <div class="card-body">
                     <h5 class="card-title">CO₂濃度 閾値設定</h5>
                     <div class="input-group">
@@ -80,7 +80,7 @@
 
         <!-- グラフ表示 -->
         <div class="d-flex justify-content-center mt-5">
-            <div style="position: relative; width: 500px">
+            <div style="position: relative">
                 <canvas id="stage1"></canvas>
                 <canvas id="stage2"></canvas>
                 <canvas id="stage3"></canvas>
@@ -90,8 +90,12 @@
         <div id="output_csv"></div>
 
         <footer class="m-5 py-3 d-flex justify-content-center">
-            <button id="logout-btn" class="m-1 btn btn-danger">ログアウト</button>
-            <button id="delete-account-btn" class="m-1 btn btn-outline-danger">アカウント削除</button>
+            <button id="logout-btn" class="m-1 btn btn-danger">
+                ログアウト
+            </button>
+            <button id="delete-account-btn" class="m-1 btn btn-outline-danger">
+                アカウント削除
+            </button>
         </footer>
 
         <script src="./js/graph_draw.js" defer></script>
