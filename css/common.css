@@ -16,24 +16,16 @@ header {
 }
 
 .graph-frame {
+    width: 100%;
     padding-left: 10%;
     padding-right: 10%;
 }
 
-.graph-container {
-    margin: 40px;
-    display: flex;
-    justify-content: center;
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
 }
-
-.graph-area {
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 75%;
-    height: 750px;
-}
-
-/* css/common.css に追加 */
 
 /* 閾値保存ボタンのカスタムスタイル */
 #save-border-btn {

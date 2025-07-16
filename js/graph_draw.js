@@ -126,9 +126,6 @@ graphSelector.addEventListener("change", updateGraphVisibility);
 
 // ページの読み込み完了時に、初期表示を行う
 document.addEventListener("DOMContentLoaded", () => {
-    // 最初に描画されるグラフの描画処理をここに記述、または呼び出してください
-    // 例: drawGraph1();
-
     // 初期表示を更新
     updateGraphVisibility();
 });
