@@ -47,7 +47,7 @@ for data in emails:
             "subject": "[CO₂濃度予測]換気しましょう",
             "content": [{
                 "type": "text/html",
-                "value": f"<h2>換気の時間</h2><換気をしましょう。>15分後のCO2濃度は<b style='background-color: red;'>{predicted_co2}</b>ppmです。<br>換気をしましょう。<?p>"
+                "value": f"<h2>⚠️CO₂濃度が基準値を超えました</h2>15分後のCO2濃度は<strong style='color: red;font-size: 20px'>{predicted_co2}</strong>ppmです。<br>換気をおすすめします。<?p><p style='font-size: 12px; color: gray;'>このメールは自動送信です。</p>"
             }]
         }
         sg.send(message)
