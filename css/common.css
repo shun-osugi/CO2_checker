@@ -15,6 +15,11 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.graph-frame {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .graph-container {
     margin: 40px;
     display: flex;
@@ -22,7 +27,8 @@ header {
 }
 
 .graph-area {
-    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
     width: 75%;
     height: 750px;
 }
