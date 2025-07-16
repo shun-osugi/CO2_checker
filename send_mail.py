@@ -43,11 +43,11 @@ for data in emails:
             "personalizations": [{
                 "to": [{"email": data["email"]}]
             }],
-            "from": {"email": "upurocon@gmail.com"},
-            "subject": "CO2濃度予測",
+            "from": {"email": "co2checkeralerts@gmail.com"},
+            "subject": "[CO₂濃度予測]換気しましょう",
             "content": [{
-                "type": "text/plain",
-                "value": f"15分後のCO2濃度は{predicted_co2}ppmです。"
+                "type": "text/html",
+                "value": f"<h2>換気の時間</h2><換気をしましょう。>15分後のCO2濃度は<b style='background-color: red;'>{predicted_co2}</b>ppmです。<br>換気をしましょう。<?p>"
             }]
         }
         sg.send(message)
